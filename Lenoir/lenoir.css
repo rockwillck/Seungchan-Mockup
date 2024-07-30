@@ -1,0 +1,233 @@
+:root {
+	--debug: none;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+
+.heading {
+	width: 100vw;
+	border: var(--debug);
+	border-color: blue;
+	display: flex;
+	box-sizing: border-box;
+}
+
+.banner {
+	box-sizing: border-box;
+	overflow: hidden;
+	position: relative;
+}
+.banner > .bannerImg {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	translate: -50% -50%;
+	min-height: 200vh;
+	min-width: 100vw;
+	z-index: -1;
+	border: solid;
+}
+
+.hero {
+	height: 100vh;
+}
+
+.large {
+	height: max(200px, 50vh);
+}
+.small {
+}
+.title {
+
+}
+
+.section {
+	display: flex;
+	border: var(--debug);
+	border-color: red;
+	flex-direction: row;
+	box-sizing: border-box;
+	width: 100%;
+}
+@media (orientation:portrait) {
+	.section {
+		flex-direction: column;
+		align-items: center !important;
+		justify-content: center;
+	}
+}
+
+.vstack {
+	display: flex;
+	flex-direction: column;
+	border: var(--debug);
+	flex: 1;
+	border-color: purple;
+	box-sizing: border-box;
+	max-width: 100%;
+	justify-content: center;
+	align-items: center;
+}
+.part {
+	border: var(--debug);
+	border-color: green;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	box-sizing: border-box;
+}
+
+.left {
+	text-align: left;
+}
+.right {
+	text-align: right;
+}
+.center {
+	text-align: center;
+}
+
+.spacer {
+	border: var(--debug);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+
+.nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	padding: 10px;
+	box-sizing: border-box;
+	z-index: 3;
+	translate: 0 0;
+	transition: 0.2s;
+}
+.siteName {
+	display: flex;
+	align-items: center;
+}
+.links {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.openButton {
+	position: fixed;
+}
+.foldButton {
+	position: absolute;
+}
+@media (orientation:landscape) {
+	.nav {
+		flex-direction: row;
+		width: 100vw;
+		align-items: center;
+		height: 60px;
+	}
+	body {
+		padding-top: 57px;
+	}
+	.links {
+		justify-content: end;
+		flex-direction: row;
+	}
+	.foldButton, .openButton {
+		transform: scale(0);
+		width: 0;
+		height: 0;
+		padding: 0;
+		margin: 0;
+		opacity: 0;
+	}
+}
+@media (orientation:portrait) {
+	.nav {
+		flex-direction: column;
+		height: 100vh;
+		translate: -100vw 0;
+	}
+
+	.foldButton {
+		transition: 0.2s;
+	}
+
+	.openButton {
+		transition: 0.2s;
+		z-index: 3;
+	}
+	.part {
+		width: 90% !important;
+	}
+}
+
+code {
+	text-wrap:wrap;
+	max-width: 100%;
+}
+.markdown {
+	max-width: 100%;
+	box-sizing: border-box;
+}
+.markdown > * {
+	display: block;
+}
+
+pre {
+	white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	font-family: inherit;
+}
+
+.btn {
+	width: 100%;
+	font-family: inherit;
+	font-size: inherit;
+}
+
+.subnav {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.subnav > a {
+	width: 100%;
+	box-sizing: border-box;
+}
+.subnavContents {
+	display: none;
+	position: absolute;
+	top: 1em;
+}
+.subnav:hover .subnavContents, .subnav:active .subnavContents { 
+	display: block;
+}
+.subnavContents > * {
+	display: block;
+}
+@media (orientation:portrait) {
+	.subnav {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+	.subnavContents {
+		position: initial;
+		width: 100%;
+	}
+}
